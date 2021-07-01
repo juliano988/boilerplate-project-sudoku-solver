@@ -1,19 +1,24 @@
+body{
+  color: #403d39;
+  background-color: #f7d9c4;
+}
+
 code {
   background: #d0d0d5;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-container {
-  max-width: 95%;
-  align-self: flex-start;
-}
-
 textarea {
+  resize: none;
+  height: 320px;
   width: 100%;
+  margin-top: 20px;
+  background-color: rgba(255, 255, 255,0.3);
+}
+
+input{
+  border-style: solid;
+  border-width: thin;
+  background-color: rgba(255, 255, 255,0.3);
 }
 
 #user-stories {
@@ -29,7 +34,7 @@ textarea {
 #sudoku-grid-container {
   display: flex;
   flex-direction: row;
-  margin-left: 20px;
+  width: 600px;
 }
 
 #sudoku-grid {
@@ -48,7 +53,7 @@ td {
 }
 
 .yAxisLegend {
-  margin-top: 50px;
+  margin-top: 40px;
   text-align: right;
   font-weight: bold;
 }
