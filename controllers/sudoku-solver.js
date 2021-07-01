@@ -91,19 +91,24 @@ class SudokuSolver {
 
       if (num === '.') {
 
-        for(let j = 1; j <= 9; j++) {
+        for (let j = 1; j <= 9; j++) {
           const randomNum = Math.round(Math.random() * 8) + 1;
 
-          if(
+          if (
             rows[numRow].indexOf(randomNum.toString(10)) === -1 &&
             columns[numColumn].indexOf(randomNum.toString(10)) === -1 &&
-            region[numRegion].indexOf(randomNum.toString(10)) === -1 
-          ){
-            console.log('['+numRow+','+numColumn+']')
-            console.log(rows[numRow],randomNum,rows[numRow].indexOf(randomNum.toString(10)) === -1)
-            console.log(columns[numColumn],randomNum,columns[numColumn].indexOf(randomNum.toString(10)) === -1)
-            console.log(region[numRegion],randomNum,region[numRegion].indexOf(randomNum.toString(10)) === -1)
-            console.log('---------------------')
+            region[numRegion].indexOf(randomNum.toString(10)) === -1
+          ) {
+            console.log('[' + numRow + ',' + numColumn + ']')
+            console.log(rows[numRow], randomNum, rows[numRow].indexOf(randomNum.toString(10)) === -1)
+            console.log(columns[numColumn], randomNum, columns[numColumn].indexOf(randomNum.toString(10)) === -1)
+            console.log(region[numRegion], randomNum, region[numRegion].indexOf(randomNum.toString(10)) === -1)
+            console.log('---------------------');
+            rows[numRow][numColumn - 1] = randomNum.toString(10);
+            columns[numColumn][numRow - 1] = randomNum.toString(10);
+            const regionRow = (numRow % 3) === 0 ? 6 : (numRow % 3) === 2 ? 3 : 0;
+            const regionColum = numColumn % 3;
+            region[numRegion][regionRow + regionColum - 1] = randomNum.toString(10);
             newPuzzleString[i] = randomNum.toString(10);
             console.log(newPuzzleString)
             break;
