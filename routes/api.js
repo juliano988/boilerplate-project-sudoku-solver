@@ -13,6 +13,10 @@ module.exports = function (app) {
     
   app.route('/api/solve')
     .post((req, res) => {
+      if(solver.validate(req.body.puzzle)){
+        solver.solve(req.body.puzzle)
+        res.send('lala')
+      }
 
     });
 };
